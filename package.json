@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node deploy.js",
+    "ganache": "mkdir -p gen/ && ganache-cli --acctKeys gen/ganache.json --account 0xbbccc72adbf3116f8112b73c18378a633eef2c619d17252609349195e3e725ae,0x056bc75e2d63100000 --account 0xddf8298ba2408b9cd4057dca845161b3d66b040832f609dd45076daba14deca8,0x056bc75e2d63100000",
+    "solc": "mkdir -p gen/ && solcjs --output-dir gen/ --optimize --abi --bin SmartContract.sol"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ganache-cli": "^6.12.2",
+    "solc": "^0.8.10"
+  },
+  "dependencies": {
+    "web3": "^1.6.1"
+  }
+}
