@@ -1,8 +1,14 @@
 import { readFileSync } from "fs"
 import { web3, networkGas } from "./network.js"
 
-export const contractAddress = JSON.parse(readFileSync(`gen/contract.json`)).contractAddress
+let caddr
+try {
+    caddr = JSON.parse(readFileSync(`gen/contract.json`)).contractAddress
+} catch(e) {
+    caddr = '0x2333dd4F672F23B76894cbAa4C1ed1BD34064238'
+}
 
+export const contractAddress = caddr
 export const abi = JSON.parse(readFileSync(`gen/SmartContract_sol_SimpleStorage.abi`))
 export const bin = `${readFileSync(`gen/SmartContract_sol_SimpleStorage.bin`).toString()}`
 export const contract = new web3.eth.Contract(abi, contractAddress)
